@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuid } from "uuid";
 
 const NewTodoForm = ({ addTodo }) => {
 	const INITIAL_STATE = {
@@ -16,7 +17,7 @@ const NewTodoForm = ({ addTodo }) => {
 
 	const handleSubmit = evt => {
 		evt.preventDefault();
-		addTodo({ ...formData });
+		addTodo({ ...formData, id: uuid() });
 		setFormData(INITIAL_STATE);
 	};
 
